@@ -15,7 +15,7 @@ const Layout: React.FC<ILayoutProps> = (props) => {
       <LayoutHead {...headProps} />
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-4 sm:px-6 md:px-8">
+      <div className="flex flex-col p-4 sm:p-6 md:p-8">
         <main className="max-w-xl mx-auto w-full">
           {/* Children */}
           {children}
