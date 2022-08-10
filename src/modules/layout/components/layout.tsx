@@ -10,7 +10,7 @@ const Layout: React.FC<ILayoutProps> = (props) => {
   const { children, headProps } = props;
 
   return (
-    <div className="flex flex-col min-h-screen font-poppins bg-gradient-to-r from-purple-400 to-yellow-400 overflow-hidden subpixel-antialiased transition-all">
+    <div className="flex flex-col min-h-screen font-poppins bg-gray-200 overflow-hidden subpixel-antialiased transition-all">
       {/* Head */}
       <LayoutHead {...headProps} />
 

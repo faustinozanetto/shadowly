@@ -1,11 +1,17 @@
 import React from 'react';
 
-interface IGeneratorResultProps {}
+interface IGeneratorResultProps {
+  shadowResult: string;
+}
 
 const GeneratorResult: React.FC<IGeneratorResultProps> = (props) => {
-  const {} = props;
+  const { shadowResult } = props;
 
-  return <div>result</div>;
+  return (
+    <div className="flex flex-col p-2" style={{ boxShadow: shadowResult }}>
+      <span>box-shadow: {shadowResult}</span>
+    </div>
+  );
 };
 
 export default GeneratorResult;

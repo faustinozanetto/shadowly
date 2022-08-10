@@ -18,7 +18,7 @@ interface ISliderParameterProps {
 const SliderParameter: React.FC<ISliderParameterProps> = (props) => {
   const { initialValue, label, min, max, onChange } = props;
   const [value, setValue] = useState(initialValue);
-  const debouncedValue = useDebounce<number>(value, 100);
+  const debouncedValue = useDebounce<number>(value, 10);
 
   // Handle the change of the intput slider.
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
