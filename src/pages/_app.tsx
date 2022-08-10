@@ -1,4 +1,4 @@
-import '@styles/globals.css';
+import '../styles/globals.css';
 import '@fontsource/poppins';
 import type { AppProps } from 'next/app';
 
