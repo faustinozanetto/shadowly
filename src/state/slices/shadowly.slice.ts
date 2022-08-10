@@ -5,6 +5,8 @@ const initialState: ShadowlySate = {
   boxShadow: {
     horizontalOffset: 10,
     verticalOffset: 15,
+    blurRadius: 20,
+    blurSpread: 25,
   },
 };
 
@@ -25,11 +27,18 @@ export const shadowlySlice = createSlice({
     setVerticalOffset: (state: ShadowlySate, action: PayloadAction<number>) => {
       Object.assign(state, { boxShadow: { ...state.boxShadow, verticalOffset: action.payload } });
     },
+    setBlurRadius: (state: ShadowlySate, action: PayloadAction<number>) => {
+      Object.assign(state, { boxShadow: { ...state.boxShadow, blurRadius: action.payload } });
+    },
+    setBlurSpread: (state: ShadowlySate, action: PayloadAction<number>) => {
+      Object.assign(state, { boxShadow: { ...state.boxShadow, blurSpread: action.payload } });
+    },
   },
 });
 
 // Expor the actions.
-export const { setBoxShadow, clearBoxShadow, setHorizontalOffset, setVerticalOffset } = shadowlySlice.actions;
+export const { setBoxShadow, clearBoxShadow, setHorizontalOffset, setVerticalOffset, setBlurRadius, setBlurSpread } =
+  shadowlySlice.actions;
 
 // Export the state selectors used in useSelector Hook.
 export const selectBoxShadow = (state: ShadowlySate) => state.boxShadow;

@@ -2,6 +2,7 @@ import React from 'react';
 import GeneratorOffsetParameters from './parameters/offset/generator-offset-parameters';
 import { selectBoxShadow } from '@state/slices/shadowly.slice';
 import { useSelector } from 'react-redux';
+import GeneratorBlurParameters from './parameters/blur/generator-blur-parameters';
 
 interface IGeneratorConfiguratorProps {}
 
@@ -19,6 +20,7 @@ const GeneratorConfigurator: React.FC<IGeneratorConfiguratorProps> = (props) => 
         horizontalOffset={boxShadow.horizontalOffset}
       />
       {/* Blur Parameters */}
+      <GeneratorBlurParameters blurRadius={boxShadow.blurRadius} blurSpread={boxShadow.blurSpread} />
     </div>
   );
 };
