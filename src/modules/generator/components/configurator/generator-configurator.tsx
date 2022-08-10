@@ -18,6 +18,7 @@ const GeneratorConfigurator: React.FC<IGeneratorConfiguratorProps> = (props) => 
         verticalOffset={boxShadow.verticalOffset}
         horizontalOffset={boxShadow.horizontalOffset}
       />
+      {/* Blur Parameters */}
     </div>
   );
 };

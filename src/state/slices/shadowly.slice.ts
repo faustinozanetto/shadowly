@@ -3,8 +3,8 @@ import { BoxShadowParameters, ShadowlySate } from 'src/typings/shadowly.types';
 
 const initialState: ShadowlySate = {
   boxShadow: {
-    horizontalOffset: 0,
-    verticalOffset: 0,
+    horizontalOffset: 10,
+    verticalOffset: 15,
   },
 };
 
