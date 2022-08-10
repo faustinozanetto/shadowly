@@ -23,7 +23,7 @@ const GeneratorConfigurator: React.FC<IGeneratorConfiguratorProps> = (props) => 
       {/* Blur Parameters */}
       <GeneratorBlurParameters blurRadius={boxShadow.blurRadius} blurSpread={boxShadow.blurSpread} />
       {/* Color Parameters */}
-      <GeneratorColorParameters color={boxShadow.color} />
+      <GeneratorColorParameters color={boxShadow.color} colorOpacity={boxShadow.colorOpacity} />
     </div>
   );
 };

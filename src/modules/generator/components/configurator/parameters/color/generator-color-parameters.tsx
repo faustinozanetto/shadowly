@@ -1,14 +1,16 @@
-import { setColor } from '@state/slices/shadowly.slice';
+import { setColor, setColorOpacity } from '@state/slices/shadowly.slice';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import ColorParameter from '../color-parameter';
+import SliderParameter from '../slider-parameter';
 
 interface IGeneratorColorParametersProps {
   color: string;
+  colorOpacity: number;
 }
 
 const GeneratorColorParameters: React.FC<IGeneratorColorParametersProps> = (props) => {
-  const { color } = props;
+  const { color, colorOpacity } = props;
   const dispatch = useDispatch();
 
   return (
@@ -21,12 +23,13 @@ const GeneratorColorParameters: React.FC<IGeneratorColorParametersProps> = (prop
       />
       {/* Opacity */}
       <SliderParameter
-        initialValue={verticalOffset}
-        label="Vertical Offset"
-        min={limits[0]}
-        max={limits[1]}
+        initialValue={colorOpacity}
+        label="Color Opacity"
+        labelUnit="%"
+        min={0}
+        max={100}
         onChange={(value) => {
-          dispatch(setVerticalOffset(value));
+          dispatch(setColorOpacity(value));
         }}
       />
     </div>

@@ -7,6 +7,7 @@ interface ISliderParameterProps {
   initialValue: number;
   // Label to display.
   label: string;
+  labelUnit?: 'px' | '%';
   // Minimum value of the slider.
   min: number;
   // Maximum value of the slider.
@@ -16,7 +17,7 @@ interface ISliderParameterProps {
 }
 
 const SliderParameter: React.FC<ISliderParameterProps> = (props) => {
-  const { initialValue, label, min, max, onChange } = props;
+  const { initialValue, label, min, max, onChange, labelUnit = 'px' } = props;
   const [value, setValue] = useState(initialValue);
   const debouncedValue = useDebounce<number>(value, 10);
 
@@ -41,7 +42,10 @@ const SliderParameter: React.FC<ISliderParameterProps> = (props) => {
       {/* Label */}
       <label htmlFor={generateIdentifier()} className="flex mb-1 tex-md font-medium text-gray-900">
         {capitalizeString(label)}
-        <span className="ml-auto">{initialValue}px</span>
+        <span className="ml-auto">
+          {initialValue}
+          {labelUnit}
+        </span>
       </label>
       <input
         id={generateIdentifier()}

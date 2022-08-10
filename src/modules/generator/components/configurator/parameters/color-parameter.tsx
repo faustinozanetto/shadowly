@@ -26,9 +26,9 @@ const ColorParameter: React.FC<IColorParameterProps> = (props) => {
   }, [debouncedValue]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-row">
       {/* Label */}
-      <label htmlFor="color-parameter" className="flex mb-1 tex-md font-medium text-gray-900">
+      <label htmlFor="color-parameter" className="flex mr-4 tex-md font-medium text-gray-900">
         Color
       </label>
       <input

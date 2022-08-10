@@ -7,8 +7,9 @@ const useShadowGenerator = () => {
   const [shadow, setShadow] = useState<string>('');
 
   const generateShadow = (): string => {
-    const { verticalOffset, horizontalOffset, blurRadius, blurSpread, color } = boxShadow;
-    const shadow = `${verticalOffset}px ${horizontalOffset}px ${blurRadius}px ${blurSpread}px ${color}`;
+    const { verticalOffset, horizontalOffset, blurRadius, blurSpread, color, colorOpacity } = boxShadow;
+    const shadowColor: string = `${color}${colorOpacity}`;
+    const shadow = `${verticalOffset}px ${horizontalOffset}px ${blurRadius}px ${blurSpread}px ${shadowColor}`;
 
     return shadow;
   };

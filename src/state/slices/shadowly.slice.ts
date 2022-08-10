@@ -7,8 +7,8 @@ const initialState: ShadowlySate = {
     verticalOffset: 15,
     blurRadius: 20,
     blurSpread: 25,
-    color: 'rgba(24,210,210,0.22)',
-    colorOpacity: 0.22,
+    color: '#454545',
+    colorOpacity: 50,
   },
 };
 
@@ -53,6 +53,7 @@ export const {
   setBlurRadius,
   setBlurSpread,
   setColor,
+  setColorOpacity,
 } = shadowlySlice.actions;
 
 // Export the state selectors used in useSelector Hook.

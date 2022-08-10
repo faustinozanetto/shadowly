@@ -10,20 +10,18 @@ const ShadowlyGenerator: React.FC<IShadowlyGeneratorProps> = (props) => {
   const { shadow } = useShadowGenerator();
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full space-y-4 sm:space-y-6">
       {/* Heading */}
-      <div className="flex flex-col bg-white mb-4 rounded-xl drop-shadow-2xl p-4 sm:p-6">
-        <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl">Shadowly</h1>
+      <div className="flex flex-col bg-gradient-to-r from-sky-400 to-cyan-300 z-10 rounded-xl drop-shadow-2xl p-4 sm:p-6">
+        <h1 className="font-bold text-white text-3xl sm:text-4xl">Shadowly</h1>
       </div>
       {/* Configuration */}
-      <div className="flex flex-col bg-white rounded-xl mb-4 p-4 sm:p-6">
+      <div className="flex flex-col bg-white z-20 rounded-xl mb-4 p-4 sm:p-6">
         <GeneratorConfigurator />
       </div>
 
-      <div className="flex flex-col p-2 sm:p-4">
-        {/* Result */}
-        <GeneratorResult shadowResult={shadow} />
-      </div>
+      {/* Result */}
+      <GeneratorResult shadowResult={shadow} />
     </div>
   );
 };
