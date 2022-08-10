@@ -1,4 +1,5 @@
 import React from 'react';
+import ShadowlyGenerator from '@modules/generator/components/shadowly-generator';
 
 interface IHomeViewProps {}
 
