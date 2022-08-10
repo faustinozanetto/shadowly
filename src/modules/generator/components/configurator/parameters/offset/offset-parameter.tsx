@@ -1,20 +1,24 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import useDebounce from 'src/hooks/use-debounce';
 import { MAX_V_OFFSET, MIN_V_OFFSET } from '@lib/constants';
-import { setVerticalOffset } from '@state/slices/shadowly.slice';
+import { setVerticalOffset, setHorizontalOffset } from '@state/slices/shadowly.slice';
 import { useDispatch } from 'react-redux';
+import { capitalizeString } from '@lib/utils';
 
-interface IVerticalOffsetParameterProps {
+interface IOffsetParameterProps {
   // The current vertical offset of the box shadow.
   offset: number;
+  // Type of offset.
+  type: 'vertical' | 'horizontal';
 }
 
-const VerticalOffsetParameter: React.FC<IVerticalOffsetParameterProps> = (props) => {
-  const { offset } = props;
+const OffsetParameter: React.FC<IOffsetParameterProps> = (props) => {
+  const { offset, type } = props;
   const [value, setValue] = useState(offset);
   const debouncedValue = useDebounce<number>(value, 500);
   const dispatch = useDispatch();
 
+  // Handle the change of the intput slider.
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setValue(Number.parseInt(value, 10));
@@ -22,18 +26,22 @@ const VerticalOffsetParameter: React.FC<IVerticalOffsetParameterProps> = (props)
 
   useEffect(() => {
     // Update to the state.
-    dispatch(setVerticalOffset(debouncedValue));
+    if (type === 'vertical') {
+      dispatch(setVerticalOffset(debouncedValue));
+    } else {
+      dispatch(setHorizontalOffset(debouncedValue));
+    }
   }, [debouncedValue]);
 
   return (
     <div className="flex flex-col">
       {/* Label */}
-      <label htmlFor="vertical-offset" className="flex mb-1 tex-md font-medium text-gray-900">
-        Vertical Offset
+      <label htmlFor={`${type}-offset`} className="flex mb-1 tex-md font-medium text-gray-900">
+        {capitalizeString(type)} Offset
         <span className="ml-auto">{value}px</span>
       </label>
       <input
-        id="vertical-offset"
+        id={`${type}-offset`}
         type="range"
         value={value}
         min={MIN_V_OFFSET}
@@ -44,4 +52,4 @@ const VerticalOffsetParameter: React.FC<IVerticalOffsetParameterProps> = (props)
     </div>
   );
 };
-export default VerticalOffsetParameter;
+export default OffsetParameter;

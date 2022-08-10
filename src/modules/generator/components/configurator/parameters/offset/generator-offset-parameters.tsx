@@ -1,5 +1,5 @@
 import React from 'react';
-import VerticalOffsetParameter from './vertical-offset-parameter';
+import OffsetParameter from './offset-parameter';
 
 interface IGeneratorOffsetParametersProps {
   verticalOffset: number;
@@ -10,11 +10,12 @@ const GeneratorOffsetParameters: React.FC<IGeneratorOffsetParametersProps> = (pr
   const { verticalOffset, horizontalOffset } = props;
 
   return (
-    <div className="flex flex-col space-x-4">
+    <div className="flex flex-col space-y-2">
       {/* Vertical Offset */}
-      <VerticalOffsetParameter offset={verticalOffset} />
+      <OffsetParameter offset={verticalOffset} type="vertical" />
 
       {/* Horizontal Offset */}
+      <OffsetParameter offset={horizontalOffset} type="horizontal" />
     </div>
   );
 };
